@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    {% load static %}
+    <style>
+        body {
+            background: linear-gradient(to right, #f5f5dc, #c3b091, #a89b74);
+            /* Adjusted padding */
+            text-align: center;
+            color: black;
+            /* Adjusted text color */
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0;   
+        }
+
+        
+
+        .container, .container1 {
+            max-width: 600px;
+            margin: auto;
+            background: #0000004b;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .container1 {
+            max-width: 800px;
+            padding: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #0000004b;
+            color: #333;
+        }
+
+        td {
+            color: #555;
+        }
+
+        p {
+            color: #777;
+            text-align: center;
+        }
+
+        .announcement {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #0000004b;
+        }
+
+        .announcement h3 {
+            margin-top: 0;
+        }
+
+        .announcement p {
+            margin-bottom: 0;
+        }
+
+        button {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #2f3031;
+        }
+        a:hover,
+        :active,
+        a {
+            color: inherit;
+            /* Inherit color from parent */
+            text-decoration: none;
+        }
+
+        .alert {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            position: relative;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1rem;
+            border: 1px solid transparent;
+            border-radius: 0.25rem;
+        }
+
+        .alert-dismissible .btn-close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0.75rem 1.25rem;
+            color: inherit;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="text-align: center; color: #1b1111;">Welcome, Student</h2>
+        <h3>Your Allocated Room Details</h3>
+        <table>
+            <tr>
+                <th>Room Number</th>
+                <th>Semester</th>
+            </tr>
+            {% for detail in room_details %}
+            <tr>
+                <td>{{ detail.room_no}}</td>
+                <td>{{ detail.sem }}</td>
+        
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="2">No room allocated yet.</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <br>
+    <div class="container1">
+        <h2>Announcements List</h2>
+        {% if announcements %}
+            {% for announcement in announcements %}
+            <div class="announcement">
+                <h3>{{ announcement.title }}</h3>
+                <p>{{ announcement.content }}</p>
+                <p>Posted on: {{ announcement.created_at }}</p>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>No announcements at the moment.</p>
+        {% endif %}
+</div>
+<br>
+<div class="container">
+    <h2>Submit a Complaint</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit Complaint</button>
+    </form>
+
+    {% if messages %}
+    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+        {% for message in messages %}
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+    <button><a href="{% url 'home' %}">Logout</a></button>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

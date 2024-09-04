@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    {% load static %}
+    <style>
+        body {
+            background: linear-gradient(to right, #f5f5dc, #c3b091, #a89b74);
+            text-align: center;
+            color: black; 
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0; /* Reset default margin */
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: linear-gradient(to right, #f5f5dc, #c3b091, #a89b74);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: bold;
+            display: block; /* Ensure labels are block elements */
+            margin-top: 10px; /* Add some space above labels */
+        }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="password"], input[type="number"], textarea {
+            width: 100%;
+            padding: 8px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background-color: #000;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        input[type="submit"]:hover {  
+            background-color: #2f3031;
+        }
+        .transparent-text-field {
+            background-color: #0000004b; /* Black color with 50% opacity */
+            color: white; /* White text color for better contrast */
+            border: 1px solid #ccc; /* Light gray border */
+            padding: 10px; /* Padding for better spacing */
+            font-size: 16px; /* Font size for better readability */
+            border-radius: 5px; /* Rounded corners */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        /* Optional: Style for placeholder text */
+        .transparent-text-field::placeholder {
+            color: rgba(255, 255, 255, 0.7); /* White color with 70% opacity */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Student Registration Form</h2>
+        <form method="post" onsubmit="return validateForm()">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"  class="transparent-text-field" required>
+            </div>
+            <div class="form-group">
+                <label for="usn">USN:</label>
+                <input type="text" id="usn" name="usn"  class="transparent-text-field"required>
+            </div>
+            <div class="form-group">
+                <label for="sem">Sem:</label> 
+                <input type="number" id="sem" name="sem"  class="transparent-text-field"required>
+            </div>
+            <div class="form-group">
+                <label for="branch">Branch:</label>
+                <input type="text" id="branch" name="branch"  class="transparent-text-field"  required>
+            </div>
+            <div class="form-group">
+                <label for="ph_no">Phone Number:</label>
+                <input type="text" id="ph_no" name="ph_no" class="transparent-text-field" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label> 
+                <input type="email" id="email" name="email" class="transparent-text-field" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address:</label> 
+                <input type="text" id="address" name="address" class="transparent-text-field" required>
+            </div>
+            <div class="form-group">
+                <label for="fathername">Father's Name:</label> 
+                <input type="text" id="fathername" name="fathername" class="transparent-text-field" required>
+            </div>
+            <div class="form-group">
+                <label for="fphn_no">Father's Phone Number:</label> 
+                <input type="text" id="fphn_no" name="fphn_no" class="transparent-text-field" required>
+            </div>
+            <div class="form-group">
+                <label for="mother_name">Mother's Name:</label> 
+                <input type="text" id="mother_name" name="mother_name" class="transparent-text-field" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label> 
+                <input type="password" id="password" name="password"  class="transparent-text-field" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password:</label> 
+                <input type="password" id="confirm_password" name="confirm_password"  class="transparent-text-field" required>
+            </div>
+            <input type="submit" value="Register">
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

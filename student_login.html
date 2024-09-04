@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    {% load static %}
+    <style>
+        body {
+            background: linear-gradient(to right, #f5f5dc, #c3b091, #a89b74);
+            /* Adjusted padding */
+            text-align: center;
+            color: black;
+            /* Adjusted text color */
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .frm{
+            background: linear-gradient(to right, #f5f5dc, #c3b091, #a89b74);
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: linear-gradient(to right, #f5f5dc, #c3b091, #a89b74);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .container form {
+            background: linear-gradient(to right, #f5f5dc, #c3b091, #a89b74);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            background: linear-gradient(to right, #f5f5dc, #c3b091, #a89b74);
+            margin-bottom: 20px;
+        }
+        label {
+            
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], input[type="password"], textarea {
+            
+            width: 80%;
+            padding: 8px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        button {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: #2f3031;
+        }
+        a:hover,
+        :active,
+        a {
+            color: inherit;
+            /* Inherit color from parent */
+            text-decoration: none;
+        }
+        .transparent-text-field {
+            background-color: #0000004b; /* Black color with 50% opacity */
+            color: white; /* White text color for better contrast */
+            border: 1px solid #ccc; /* Light gray border */
+            padding: 10px; /* Padding for better spacing */
+            font-size: 16px; /* Font size for better readability */
+            border-radius: 5px; /* Rounded corners */
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        /* Optional: Style for placeholder text */
+        .transparent-text-field::placeholder {
+            color: rgba(255, 255, 255, 0.7); /* White color with 70% opacity */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color:black">Student Login</h1>
+        <form method="post" class="frm">
+            <div class="frm">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" class="transparent-text-field" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="usn">USN:</label>
+                <input type="text" id="usn" class="transparent-text-field" name="usn" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label> 
+                <input type="password" id="password" class="transparent-text-field" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </div>
+        </form>
+        <br>
+        <button><a href="{% url 'student_register' %}">Register</a></button>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Room Details</title>
+</head>
+<body>
+    <h1>Room Details</h1>
+    <h2>Rooms</h2>
+    <table border="1">
+        <tr>
+            <th>Room Number</th>
+            <th>Total Rooms</th>
+            <th>Number of Beds</th>
+            <th>Occupied</th>
+        </tr>
+        {% for room in rooms %}
+        <tr>
+            <td>{{ room.room_no }}</td>
+            <td>{{ room.total_rooms }}</td>
+            <td>{{ room.no_of_beds }}</td>
+            <td>{{ room.is_occupied }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Room Allocations</h2>
+    <table border="1">
+        <tr>
+            <th>Room Number</th>
+            <th>USN</th>
+            <th>Student Name</th>
+            <th>Semester</th>
+        </tr>
+        {% for detail in room_details %}
+        <tr>
+            <td>{{ detail.room_no.room_no }}</td>
+            <td>{{ detail.usn.usn }}</td>
+            <td>{{ detail.name }}</td>
+            <td>{{ detail.sem }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'admin_home' %}">Back to Admin Home</a>
+</body>
+</html>

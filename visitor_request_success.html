@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Submitted</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    {% load static %}
+    <style>
+        body {
+            background: linear-gradient(to right, #f5f5dc, #c3b091, #a89b74);
+            text-align: center;
+            color: black; 
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0; /* Reset default margin */
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: linear-gradient(to right, #f5f5dc, #c3b091, #a89b74);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        a {
+            display: inline-block;
+            background-color: #000;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        a:hover {
+            background-color: #2f3031;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Visitor Request Submitted Successfully</h1>
+        <p>Your request has been submitted. We will notify you once it is processed.</p>
+        <a href="{% url 'home' %}">Go to Home</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    {% load static %}
+    <style>
+        h1,
+        h3 {
+            font-style: italic;
+        }
+
+        .ia {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+            /* Adjusted height */
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .ia img {
+            width: 200px;
+            /* Adjusted width */
+            height: 200px;
+            /* Adjusted height */
+            object-fit: cover;
+            border-radius: 50%;
+            /* Makes the image circular */
+        }
+
+        .body2 {
+            background: linear-gradient(to right, #f5f5dc, #c3b091, #a89b74);
+            /* Adjusted padding */
+            text-align: center;
+            color: black;
+            /* Adjusted text color */
+        }
+
+        .des {
+            border-radius: 15px;
+        }
+
+        .card-container {
+            margin-top: 50px;
+            /* Adjusted margin */
+        }
+
+        .card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            /* Makes the image circular */
+            object-fit: cover;
+            margin: 0 auto;
+            /* Centers the image horizontally */
+        }
+
+        .card {
+            border: none;
+        }
+
+        button {
+            background-color: #000;
+            color: #FFFFFF;
+            /* White text */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            /* Font size */
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        button:active {
+            opacity: 1.0;
+        }
+
+        a:hover,
+        :active,
+        a {
+            color: inherit;
+            /* Inherit color from parent */
+            text-decoration: none;
+        }
+
+        .card {
+            padding-top: 10px;
+            border-radius: 15px;
+        }
+
+        .container2 {
+            padding: 20px;
+            margin: 15px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="body2">
+        <div class="ia body2">
+            <img src="{% static 'hostel/images/hm.jpg' %}" alt="home image">
+            <div>
+                <h1>VEDIC DORM</h1>
+                <h3>&nbsp;&nbsp;&nbsp;HAPPY HOME </h3>
+            </div>
+        </div>
+        <div class="des container body2">
+            <h2>"At Vedic Dorm, where tradition meets modernity, degree students find a harmonious blend of
+                academic excellence and community living. Our hostel is not just a place to stay, but a
+                nurturing environment where lifelong friendships are forged, dreams are realized, and every
+                student is empowered to achieve their fullest potential."</h2>
+        </div>
+        <div class="card-container body2">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-4 cd">
+                        <div class="card text-center body2">
+                            <img src="{% static 'hostel/images/student.jpeg' %}" alt="Card image">
+                            <div class=" card card-body body2">
+                                <h6 class="card-text">Students must log in to access personalized features and
+                                    information tailored to their hostel experience, ensuring secure and personalized
+                                    access to relevant services and updates.</h6>
+                                <button><a href="{% url 'student_login' %}">Student</a></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 cd">
+                        <div class="card text-center body2">
+                            <img src="{% static 'hostel/images/visitors.png' %}" alt="Card image">
+                            <div class=" card card-body body2">
+                                <h6 class="card-text">Visitors coming to see their child at Vedic Dorm must log in to
+                                    their account to request a visit, ensuring security and seamless coordination with
+                                    hostel management.</h6>
+                                <button><a href="{% url 'visitor_request' %}">Visitor</a></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 cd">
+                        <div class="card text-center body2">
+                            <img src="{% static 'hostel/images/warden.png' %}" alt="Card image">
+                            <div class=" card card-body body2">
+                                <h6 class="card-text">Warden must log in to access and manage hostel operations and
+                                    student-related activities
+                                    securely.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </h6>
+                                <button><a href="http://127.0.0.1:8000/admin/login/?next=/admin/">Warden</a></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container2">
+                    <div class="row featurette">
+                        <div class="col-md-7">
+                            <h2 class="featurette-heading fw-normal lh-1">About Us.
+                                <p class="lead">Vedic Dorm is a premier hostel dedicated to providing a comfortable and
+                                    enriching living experience for degree students. Our facility offers a harmonious
+                                    blend of modern amenities and traditional values, ensuring a conducive environment
+                                    for academic excellence and personal growth. Each student is accommodated in
+                                    well-furnished rooms with access to high-speed internet, study areas, recreational
+                                    facilities, and nutritious meals. Vedic Dorm fosters a supportive community where
+                                    students can thrive academically and socially, with a focus on safety, wellness, and
+                                    holistic development. Our dedicated staff and comprehensive services aim to create a
+                                    home away from home, nurturing the potential of every resident.</p>
+                        </div>
+                        <div class="col-md-5">
+                            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+                                src="{% static 'hostel/images/about.png' %}" alt="Placeholder Image" width="200"
+                                height="200" style="border-radius:50%;">
+                        </div>
+                    </div>
+                    <div class="row featurette ">
+                        <div class="col-md-7 ">
+                            <h2 class="featurette-heading fw-normal lh-1">Contact Us. </h2>
+                            <em class="lead">Vedic Dorm.<br>
+                                -----------<br>
+                                <i class="fa-solid fa-location-dot"></i>123 Main Street,<br>
+                                Cityville, State,123456<br>
+
+                                <i class="fa-solid fa-phone-volume"></i>+1 (555) 123-4567<br>
+                                <i class="fa-solid fa-square-envelope"></i>contact@example.com<br>
+
+                                <i class="fa-brands fa-square-instagram"></i> vedicdorm@Insta <br>
+                                <i class="fa-brands fa-square-twitter"></i>vedicdorm@twitter<br>
+                                <i class="fa-brands fa-facebook"></i>vedicdorm@facebook
+                            </em>
+                        </div>
+                        <div class="col-md-5">
+                            <img class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+                                src="{% static 'hostel/images/contact.png' %}" alt="Placeholder Image" width="200"
+                                height="200" style="border-radius:50%;">
+                        </div>
+
+                        </svg>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    <footer>
+        
+        <div class="container-fluid bg-dark text-white text-center py-3">
+            <p>Copyright &copy; vedicdorm.com. All Rights Reserved.</p>
+        </div>
+   
+    </footer>
+</div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

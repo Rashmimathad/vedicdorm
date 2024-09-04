@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Home</title>
+</head>
+<body>
+    <h1>Admin Home</h1>
+    <a href="{% url 'student_list' %}">View Student List</a><br><br>
+    <a href="{% url 'room_details' %}">View Room Details</a><br><br>
+    <a href="{% url 'allocate_room' %}">Allocate Room</a><br><br>
+    <a href="{% url 'home' %}">Logout</a>
+
+    <h2>Visitor Requests</h2>
+    <table border="1">
+        <tr>
+            <th>USN</th>
+            <th>Student Name</th>
+            <th>Visitor Name</th>
+            <th>Relation</th>
+            <th>Phone Number</th>
+            <th>Visit Date</th>
+            <th>Visit Time</th>
+            <th>Request Date</th>
+            <th>Status</th>
+        </tr>
+        {% for request in visitor_requests %}
+        <tr>
+            <td>{{ request.usn }}</td>
+            <td>{{ request.student_name }}</td>
+            <td>{{ request.visitor_name }}</td>
+            <td>{{ request.relation }}</td>
+            <td>{{ request.ph_no }}</td>
+            <td>{{ request.visit_date }}</td>
+            <td>{{ request.visit_time }}</td>
+            <td>{{ request.request_date }}</td>
+            <td>{{ request.status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'fetch_student_details' %}">Fetch Student Details</a><br>
+    <a href="{% url 'allocate_rooms' %}">Allocate Rooms</a><br>
+    <a href="{% url 'fetch_room_details' %}">Fetch Room Details</a><br>
+    <a href="{% url 'admin_logout' %}">Logout</a>
+</body>
+</html>
+

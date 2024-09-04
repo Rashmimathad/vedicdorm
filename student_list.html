@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student List</title>
+</head>
+<body>
+    <h1>Student List</h1>
+    <table border="1">
+        <tr>
+            <th>USN</th>
+            <th>Name</th>
+            <th>Semester</th>
+            <th>Branch</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Father's Name</th>
+            <th>Father's Phone Number</th>
+            <th>Mother's Name</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.usn }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.sem }}</td>
+            <td>{{ student.branch }}</td>
+            <td>{{ student.ph_no }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.address }}</td>
+            <td>{{ student.fathername }}</td>
+            <td>{{ student.fphn_no }}</td>
+            <td>{{ student.mother_name }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'admin_home' %}">Back to Admin Home</a>
+</body>
+</html>
